@@ -1,0 +1,256 @@
+149-161-184-64:~ Abbie$ which git
+/usr/bin/git
+149-161-184-64:~ Abbie$ git config user.name
+xcode-select: note: no developer tools were found at '/Applications/Xcode.app', requesting install. Choose an option in the dialog to download the command line developer tools.
+149-161-184-64:~ Abbie$ git config abguest
+xcode-select: note: no developer tools were found at '/Applications/Xcode.app', requesting install. Choose an option in the dialog to download the command line developer tools.
+149-161-184-64:~ Abbie$ git config user.name
+xcode-select: note: no developer tools were found at '/Applications/Xcode.app', requesting install. Choose an option in the dialog to download the command line developer tools.
+149-161-184-64:~ Abbie$ git config user.name
+149-161-184-64:~ Abbie$ git config user.email
+149-161-184-64:~ Abbie$ ls
+Applications		HelloPrinter.class	Music
+Desktop			HelloPrinter.java	Pictures
+Documents		Library			Public
+Downloads		Movies			eclipse-workspace
+149-161-184-64:~ Abbie$ git clone https://git.overleaf.com/5ce55b8e47b5900d4892bfa8
+Cloning into '5ce55b8e47b5900d4892bfa8'...
+Username for 'https://git.overleaf.com': abguest@iu.edu
+Password for 'https://abguest@iu.edu@git.overleaf.com': 
+remote: Counting objects: 3, done
+remote: Finding sources: 100% (3/3)
+remote: Getting sizes: 100% (2/2)
+remote: Compressing objects: 100% (205/205)
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+149-161-184-64:~ Abbie$ git config user.name
+149-161-184-64:~ Abbie$ git config user.name
+149-161-184-64:~ Abbie$ git config user.email
+149-161-184-64:~ Abbie$ ls
+5ce55b8e47b5900d4892bfa8	Library
+Applications			Movies
+Desktop				Music
+Documents			Pictures
+Downloads			Public
+HelloPrinter.class		eclipse-workspace
+HelloPrinter.java
+149-161-184-64:~ Abbie$ mv 5ce55b8e47b5900d4892bfa8/ GitOverleaf
+149-161-184-64:~ Abbie$ ls
+Applications		HelloPrinter.class	Pictures
+Desktop			HelloPrinter.java	Public
+Documents		Library			eclipse-workspace
+Downloads		Movies
+GitOverleaf		Music
+149-161-184-64:~ Abbie$ cd GitOverleaf/
+149-161-184-64:GitOverleaf Abbie$ ls
+main.tex
+149-161-184-64:GitOverleaf Abbie$ nano main.tex
+149-161-184-64:GitOverleaf Abbie$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://git.overleaf.com/5ce55b8e47b5900d4892bfa8
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+149-161-184-64:GitOverleaf Abbie$ ls
+main.tex
+149-161-184-64:GitOverleaf Abbie$ touch README.md
+149-161-184-64:GitOverleaf Abbie$ ls
+README.md	main.tex
+149-161-184-64:GitOverleaf Abbie$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+149-161-184-64:GitOverleaf Abbie$ git add README.md
+149-161-184-64:GitOverleaf Abbie$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   README.md
+
+149-161-184-64:GitOverleaf Abbie$ git commit
+[master 754c36f] Adding new file README.md
+ Committer: Abbie Guest <Abbie@149-161-184-64.dhcp-bl.indiana.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+149-161-184-64:GitOverleaf Abbie$ ls
+README.md	main.tex
+149-161-184-64:GitOverleaf Abbie$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+149-161-184-64:GitOverleaf Abbie$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 307 bytes | 307.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+remote: Updating references: 100% (1/1)
+To https://git.overleaf.com/5ce55b8e47b5900d4892bfa8
+   ebd6b3f..754c36f  master -> master
+149-161-184-64:GitOverleaf Abbie$ mkdir src
+149-161-184-64:GitOverleaf Abbie$ mkdir paper
+149-161-184-64:GitOverleaf Abbie$ git mv main.tex paper
+149-161-184-64:GitOverleaf Abbie$ ls
+README.md	paper		src
+149-161-184-64:GitOverleaf Abbie$ cd paper
+149-161-184-64:paper Abbie$ ls
+main.tex
+149-161-184-64:paper Abbie$ cd ..
+149-161-184-64:GitOverleaf Abbie$ ls
+README.md	paper		src
+149-161-184-64:GitOverleaf Abbie$ touch data/secret_personal_data.txt
+touch: data/secret_personal_data.txt: No such file or directory
+149-161-184-64:GitOverleaf Abbie$ touch data/secret_personal_data.txt/
+touch: data/secret_personal_data.txt/: No such file or directory
+149-161-184-64:GitOverleaf Abbie$ mkdir data
+149-161-184-64:GitOverleaf Abbie$ touch data/secret_personal_data.txt
+149-161-184-64:GitOverleaf Abbie$ ls
+README.md	data		paper		src
+149-161-184-64:GitOverleaf Abbie$ vi .gitignore
+149-161-184-64:GitOverleaf Abbie$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	renamed:    main.tex -> paper/main.tex
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.gitignore
+
+149-161-184-64:GitOverleaf Abbie$ git commit -m "Adding .gitignore and moving main.tex into the paper directory."
+[master b554068] Adding .gitignore and moving main.tex into the paper directory.
+ Committer: Abbie Guest <Abbie@149-161-184-64.dhcp-bl.indiana.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename main.tex => paper/main.tex (100%)
+149-161-184-64:GitOverleaf Abbie$ ls
+README.md	data		paper		src
+149-161-184-64:GitOverleaf Abbie$ cd data
+149-161-184-64:data Abbie$ ls
+secret_personal_data.txt
+149-161-184-64:data Abbie$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	../.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+149-161-184-64:data Abbie$ ls
+secret_personal_data.txt
+149-161-184-64:data Abbie$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	../.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+149-161-184-64:data Abbie$ cd ..
+149-161-184-64:GitOverleaf Abbie$ ls
+README.md	data		paper		src
+149-161-184-64:GitOverleaf Abbie$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+149-161-184-64:GitOverleaf Abbie$ cat .gitignore
+data
+149-161-184-64:GitOverleaf Abbie$ git add .gitignore
+149-161-184-64:GitOverleaf Abbie$ git commit -m "Adding .gitignore"
+[master a3a093d] Adding .gitignore
+ Committer: Abbie Guest <Abbie@149-161-184-64.dhcp-bl.indiana.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+149-161-184-64:GitOverleaf Abbie$ git remote remove origin
+149-161-184-64:GitOverleaf Abbie$ git remote add origin https://github.com/abguest/ProHealth.git
+149-161-184-64:GitOverleaf Abbie$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+149-161-184-64:GitOverleaf Abbie$ git push -u origin master
+Username for 'https://github.com': abguest
+Password for 'https://abguest@github.com': 
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (11/11), 1.18 KiB | 606.00 KiB/s, done.
+Total 11 (delta 0), reused 0 (delta 0)
+To https://github.com/abguest/ProHealth.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+149-161-184-64:GitOverleaf Abbie$ 
